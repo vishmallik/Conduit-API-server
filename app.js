@@ -7,8 +7,10 @@ const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-mongoose.connect("mongodb://127.0.0.1/conduit", (err) => {
-  console.log(err ? err : "connected to Database");
+const uri = process.env.MONGO_URL;
+
+mongoose.connect(uri, (err) => {
+  console.log(err ? err : "Connected to DB");
 });
 
 const usersRouter = require("./routes/users");
